@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+<bean id="student1" class="com.bean.Student" scope="singleton">
+<property name="studentNo" value="22"></property>
+<property name="name" value="Nikitha"></property>
+</bean>
+
+<bean id="student2" class="com.bean.Student" scope="singleton">
+<property name="studentNo" value="33"></property>
+<property name="name" value="Meghana"></property>
+</bean>
+
+<bean id="teacher" class="com.bean.Teacher" scope="singleton" autowire="byName">
+<property name="teacherId" value="123"></property>
+<property name="teacherName" value="Suni"></property>
+<property name="students">
+<list>
+<ref bean="student1" />
+<ref bean="student2" />
+<ref bean="student2" />
+</list>
+
+</property>
+</bean>
+
+
+</beans>
